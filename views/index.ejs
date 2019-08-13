@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <section>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src = "/routes/jquery.ripples-min.js"></script>
+        <script type = "text/javascript">
+        $(document).ready(function(){
+          $('section').ripples({
+            dropRadius: 12,
+            perturbance: 0.05,
+          });
+        })
+          </script>
+      <div class="form-login-container">
+      <form class="form-login" method="POST" action="/signin">
+        <h1>로그인</h1>
+        
+        <div class="field-container">
+          <label for="field_user">User Name or Email</label>
+          <input class="field" name='identity' type="text" id="field_user" required/>
+        </div>
+        
+        <div class="field-container">
+          <label for="field_password">Password</label>
+          <input class="field" name='password' type="password" id='field_password' required/>
+        </div>
+        
+        <div class="field-container">
+          <label for="field_remember">
+              <input type="checkbox" id="field_remember"/> Remember Me
+          </label>
+        </div>
+        
+        <div class="field-container">
+          <!-- type="submit" -->
+          <button class="submit" type="submit">Login</button>
+        </div>
+      </form>
+      <form class="form-login" method="POST" action="/signup">
+        <h1>회원가입</h1>
+        
+        <div class="field-container">
+          <label for="field_user">User Name or Email</label>
+          <input class="field" name='identity' type="text" id="field_user" required/>
+        </div>
+        
+        <div class="field-container">
+          <label for="field_password">Password</label>
+          <input class="field" name='password' type="password" id='field_password' required/>
+        </div>
+        
+        <div class="field-container">
+          <label for="field_remember">
+              <input type="checkbox" id="field_remember"/> Remember Me
+          </label>
+        </div>
+        
+        <div class="field-container">
+          <!-- type="submit" -->
+          <button class="submit" type="submit">가입하기</button>
+        </div>
+      </form>      
+    </div>
+    </section>
+  </body>
+</html>
