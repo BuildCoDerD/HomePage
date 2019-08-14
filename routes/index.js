@@ -10,22 +10,22 @@ sequelize.sync().then(() => {
 })
 
 /* GET home page. */
-router.get('/login', function(req, res, next) {
-  res.render('index', { title: '회원 로그인 페이지' });
+router.get('/login', function (req, res, next) {
+  res.render('test', { title: '회원 로그인 페이지' });
 });
 
-router.get('/', function(req, res, next) {
-  res.render('test', { title: '메인 페이지' });
+router.get('/', function (req, res, next) {
+  res.render('index', { title: '메인 페이지' });
 });
 
 router.post('/signin', (req, res) => {
   let { identity, password } = req.body
 
   if (!identity || !password) {
-      res.status(200).json({
-        code: 400,
-        message: 'Some parameters are lost..'
-      })
+    res.status(200).json({
+      code: 400,
+      message: 'Some parameters are lost..'
+    })
   }
 
   password = crypto.createHash('sha512').update(password).digest('hex');
@@ -61,10 +61,10 @@ router.post('/signup', (req, res) => {
   password = crypto.createHash('sha512').update(password).digest('hex');
 
   User.findOrCreate({
-   where: { identity },
-   defaults: {
-     password
-   }
+    where: { identity },
+    defaults: {
+      password
+    }
   }).spread((user, created) => {
     if (!created) {
       res.status(200).json({
